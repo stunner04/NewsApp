@@ -14,7 +14,7 @@ interface ArticleDAO {
     suspend fun upsert(article: Article): Long
 
     @Query("select * from articles")
-    suspend fun getAllArticles(): LiveData<List<Article>>
+    fun getAllArticles(): LiveData<List<Article>>
 
     @Delete
     suspend fun removeArticle(article: Article)
