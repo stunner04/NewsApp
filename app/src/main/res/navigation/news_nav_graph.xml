@@ -10,7 +10,11 @@
         android:name="com.example.newsapp.ui.fargments.ArticleFragment"
         android:label="ArticleFragment"
 
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+        <argument android:name="article"
+            app:argType="com/example/newsapp/models/Article.kt"
+            />
+    </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.example.newsapp.ui.fargments.FavouriteFragment"
