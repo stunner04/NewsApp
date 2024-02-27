@@ -12,7 +12,7 @@
 
         tools:layout="@layout/fragment_article" >
         <argument android:name="article"
-            app:argType="com/example/newsapp/models/Article.kt"
+            app:argType="com.example.newsapp.models.Article"
             />
     </fragment>
     <fragment
