@@ -60,7 +60,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             articleSource.text = singleArticle.source.name
             articleDateTime.text = singleArticle.publishedAt
             setOnClickListener {
-                onItemClick?.let {
+                onItemClick?.let {  // .invoke(singleArticle)
                     it(singleArticle)
                 }
             }
