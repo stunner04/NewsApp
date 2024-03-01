@@ -23,8 +23,6 @@ interface NewsAPI {
     suspend fun searchNews(
         @Query("q")
         searchQuery: String ,
-        @Query("country")
-        countryCode: String = "in",
         @Query("page")
         pageNumber: Int = 1,
         @Query("apiKey")

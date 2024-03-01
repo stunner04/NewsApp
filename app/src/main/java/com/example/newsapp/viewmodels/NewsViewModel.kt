@@ -45,8 +45,8 @@ class NewsViewModel(val app: Application, val newsRepo: NewsRepository) : Androi
         checkInternetConnectionHeadlines(countryCode)
     }
 
-    fun searchNews(searchQuery: String, countryCode: String) = viewModelScope.launch {
-        checkInternetConnectionSearchNews(searchQuery, countryCode)
+    fun searchNews(searchQuery: String) = viewModelScope.launch {
+        checkInternetConnectionSearchNews(searchQuery)
     }
 
     /** 3 ->
@@ -120,13 +120,12 @@ class NewsViewModel(val app: Application, val newsRepo: NewsRepository) : Androi
 
     private suspend fun checkInternetConnectionSearchNews(
         searchQuery: String,
-        countryCode: String
     ) {
         newSearchQuery = searchQuery
         _searchNews.postValue(Resource.Loading())
         try {
             if (checkInternetConnection(this.getApplication())) {
-                val response = newsRepo.getSearchInNews(searchQuery, countryCode, searchNewsPage)
+                val response = newsRepo.getSearchInNews(searchQuery,searchNewsPage)
                 _searchNews.postValue(handleSearchNewsResponse(response))
             } else {
                 _searchNews.postValue(Resource.Error("No Internet Found"))

@@ -9,8 +9,8 @@ class NewsRepository(val db: ArticleDatabase) {
     suspend fun getHeadlines(countryCode: String, pageNumber: Int) =
         RetrofitInstance.api.getHeadlines(countryCode, pageNumber)
 
-    suspend fun getSearchInNews(searchQuery: String, countryCode: String, pageNumber: Int) =
-        RetrofitInstance.api.searchNews(searchQuery, countryCode, pageNumber)
+    suspend fun getSearchInNews(searchQuery: String, pageNumber: Int) =
+        RetrofitInstance.api.searchNews(searchQuery, pageNumber)
 
     fun getAllFavArticles() = db.getArticleDao().getAllArticles()
     suspend fun addToFav(article: Article) = db.getArticleDao().upsert(article)
